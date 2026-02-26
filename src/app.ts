@@ -7,15 +7,12 @@ import imageUtilsRouter from './routes/imageUtils';
 const app = express();
 const port = process.env.PORT || 3000;
 
-// 👉 CORS: permitir TODO desde CUALQUIER lado
 app.use(cors());
 
-// 👉 Para preflight requests (OPTIONS)
 app.options('*', cors());
 
 app.use(express.json());
 
-// Rutas principales
 app.use('/api/gemini', geminiRouter);
 app.use('/api/image', imageUtilsRouter);
 
