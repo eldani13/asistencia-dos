@@ -22,8 +22,7 @@ router.post('/analyze', upload.single('image'), async (req, res) => {
     }
     // Convertir buffer a base64
     const imageBase64 = req.file.buffer.toString('base64');
-    const prompt = req.body.prompt || '';
-    const result = await analyzeImage(imageBase64, prompt);
+    const result = await analyzeImage(imageBase64);
     res.json(result);
   } catch (err: any) {
     res.status(500).json({ error: err.message });
